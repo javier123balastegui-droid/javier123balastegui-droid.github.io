@@ -103,10 +103,15 @@ footer { margin-top: 36px; padding-top: 14px; border-top: 1px solid var(--line);
   :root { --bg: #fff; --paper: #fff; --ink: #000; --ink-soft: #333; --muted: #666; --line: #ccc; --accent: #1f4e79; --accent-soft: #eef2f6; color-scheme: light; }
   body { font-size: 9.5pt; }
   .sheet { margin: 0; border: 0; padding: 0; max-width: none; }
-  .grid { grid-template-columns: minmax(0, 1fr) 200px; gap: 28px; }
+  .grid { grid-template-columns: minmax(0, 1fr) 215px; gap: 24px; }
   .kpis { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .print { display: none; }
-  section { break-inside: avoid; }
+  .decision, .kpis, .bul li, .job-head, h2, .sub-h { break-inside: avoid; break-after: auto; }
+  h2, .sub-h, .job-head { break-after: avoid; }
+  .contact { font-size: 8.5pt; }
+  h3 { font-size: 11.5pt; line-height: 1.3; }
+  .decision p, .bul, p { font-size: 9pt; line-height: 1.45; }
+  .kpi b { font-size: 13pt; }
 }
 </style>
 </head>
