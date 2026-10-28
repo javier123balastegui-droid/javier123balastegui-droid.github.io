@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Javier Balastegui · Full-Stack Developer</title>
+<meta name="description" content="Full-stack developer. I built Wapoo, an AI platform that answers WhatsApp, books appointments and collects deposits, in production with real customers. Next.js, PostgreSQL and the Claude API.">
+<meta name="author" content="Javier Balastegui">
+<link rel="canonical" href="https://javier123balastegui-droid.github.io/en/">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="profile">
+<meta property="og:url" content="https://javier123balastegui-droid.github.io/en/">
+<meta property="og:title" content="Javier Balastegui · Full-Stack Developer">
+<meta property="og:description" content="Full-stack developer. I built Wapoo, an AI platform that answers WhatsApp, books appointments and collects deposits, in production with real customers. Next.js, PostgreSQL and the Claude API.">
+<meta property="og:image" content="https://javier123balastegui-droid.github.io/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Currículum de una página: sobrio, para leer en pantalla y para imprimir
+   en A4. Columna principal (perfil, proyecto, decisiones) y una lateral
+   (contacto, tecnologías, enfoque). */
+:root {
+  --bg: #f6f5f1; --paper: #ffffff; --ink: #16181d; --ink-soft: #4b505a; --muted: #80858f;
+  --line: #e4e2dc; --accent: #1f4e79; --accent-soft: #e8eef5;
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Inter", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111317; --paper: #181b21; --ink: #e9eaee; --ink-soft: #b4b8c1; --muted: #858a95;
+    --line: #2a2e36; --accent: #8db8e3; --accent-soft: #1d2836; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #111317; --paper: #181b21; --ink: #e9eaee; --ink-soft: #b4b8c1; --muted: #858a95;
+  --line: #2a2e36; --accent: #8db8e3; --accent-soft: #1d2836; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: .95rem; line-height: 1.6; -webkit-font-smoothing: antialiased; margin: 0; }
+.sheet { max-width: 980px; margin: clamp(0px, 4vw, 40px) auto; background: var(--paper); border: 1px solid var(--line); border-radius: 4px; padding: clamp(24px, 5vw, 56px) max(16px, clamp(20px, 5vw, 56px)); }
+h1, h2, h3 { margin: 0; }
+p { margin: 0; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+header { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px; align-items: flex-end; padding-bottom: 28px; border-bottom: 2px solid var(--ink); }
+h1 { font-family: var(--font-display); font-weight: 600; font-size: clamp(2.2rem, 5vw, 3.2rem); line-height: 1.02; letter-spacing: -0.02em; }
+.role { margin-top: 8px; font-size: 1.08rem; color: var(--ink-soft); }
+.role b { color: var(--accent); font-weight: 600; }
+.head-meta { text-align: right; font-size: .88rem; color: var(--ink-soft); display: grid; gap: 2px; }
+
+.grid { display: grid; grid-template-columns: minmax(0, 1fr) 260px; gap: 44px; margin-top: 32px; }
+section + section { margin-top: 30px; }
+h2 { font-size: .74rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; padding-bottom: 6px; border-bottom: 1px solid var(--line); }
+.summary { font-size: 1.02rem; color: var(--ink); max-width: 64ch; }
+.summary + .summary { margin-top: 10px; color: var(--ink-soft); font-size: .96rem; }
+
+.job-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; align-items: baseline; }
+.job-head h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.32rem; letter-spacing: -0.01em; }
+.job-head span { font-size: .85rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.job-sub { color: var(--ink-soft); margin-top: 2px; font-size: .92rem; }
+.kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); margin: 16px 0 18px; }
+.kpi { background: var(--paper); padding: 12px 14px; display: grid; gap: 2px; }
+.kpi b { font-family: var(--font-display); font-weight: 600; font-size: 1.45rem; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.kpi span { font-size: .76rem; color: var(--ink-soft); line-height: 1.35; }
+ul.bul { margin: 0; padding-left: 0; list-style: none; display: grid; gap: 9px; }
+ul.bul li { position: relative; padding-left: 18px; }
+ul.bul li::before { content: ""; position: absolute; left: 0; top: .68em; width: 7px; height: 1.5px; background: var(--accent); }
+ul.bul b { font-weight: 600; }
+.sub-h { font-size: .82rem; font-weight: 600; color: var(--ink); margin: 18px 0 8px; }
+
+.decisions { display: grid; gap: 12px; }
+.decision { border-left: 2px solid var(--accent); padding: 2px 0 2px 14px; }
+.decision b { display: block; font-weight: 600; }
+.decision p { color: var(--ink-soft); font-size: .9rem; }
+
+aside section + section { margin-top: 26px; }
+.contact { display: grid; gap: 8px; font-size: .9rem; }
+.contact small { display: block; color: var(--muted); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; }
+.contact span, .contact a { overflow-wrap: anywhere; }
+.stack { display: grid; gap: 12px; }
+.stack div small { display: block; color: var(--muted); font-size: .76rem; margin-bottom: 4px; }
+.tags { display: flex; flex-wrap: wrap; gap: 5px; }
+.tag { font-family: var(--font-mono); font-size: .74rem; background: var(--accent-soft); color: var(--ink); padding: 2px 7px; border-radius: 3px; }
+.plain { margin: 0; padding-left: 16px; display: grid; gap: 6px; font-size: .9rem; color: var(--ink-soft); }
+
+footer { margin-top: 36px; padding-top: 14px; border-top: 1px solid var(--line); font-size: .8rem; color: var(--muted); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
+.print { border: 1px solid var(--line); background: var(--paper); color: var(--ink); border-radius: 4px; padding: 4px 10px; font: inherit; font-size: .8rem; cursor: pointer; }
+
+@media (max-width: 820px) {
+  .grid { grid-template-columns: 1fr; gap: 30px; }
+  .head-meta { text-align: left; }
+  .kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media print {
+  @page { size: A4; margin: 14mm; }
+  :root { --bg: #fff; --paper: #fff; --ink: #000; --ink-soft: #333; --muted: #666; --line: #ccc; --accent: #1f4e79; --accent-soft: #eef2f6; color-scheme: light; }
+  body { font-size: 9.5pt; }
+  .sheet { margin: 0; border: 0; padding: 0; max-width: none; }
+  .grid { grid-template-columns: minmax(0, 1fr) 215px; gap: 24px; }
+  .kpis { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .print { display: none; }
+  .decision, .kpis, .bul li, .job-head, h2, .sub-h { break-inside: avoid; break-after: auto; }
+  h2, .sub-h, .job-head { break-after: avoid; }
+  .contact { font-size: 8.5pt; }
+  h3 { font-size: 11.5pt; line-height: 1.3; }
+  .decision p, .bul, p { font-size: 9pt; line-height: 1.45; }
+  .kpi b { font-size: 13pt; }
+}
+</style>
+</head>
+<body>
+<main class="sheet">
+  <header>
+    <div>
+      <h1>Javier Balastegui</h1>
+      <p class="role"><b>Full-stack developer</b> · AI and automation for businesses, from idea to production</p>
+    </div>
+    <div class="head-meta">
+      <span>Villa Carlos Paz, Córdoba, Argentina · Remote or hybrid</span>
+      <a href="mailto:javier123balastegui@gmail.com">javier123balastegui@gmail.com</a>
+      <a href="https://github.com/javier123balastegui-droid/wapoo" target="_blank" rel="noopener">GitHub · Wapoo source code</a>
+      <a href="https://www.linkedin.com/in/javierbalastegui" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </header>
+
+  <div class="grid">
+    <div>
+      <section>
+        <h2>Profile</h2>
+        <p class="summary">I design, build and run complete web products. On my own, end to end, I built a SaaS platform with an AI assistant that handles WhatsApp: it is in production with real users and I am now offering it to other businesses.</p>
+        <p class="summary">I am a self-taught developer and build automations for small businesses. I come from healthcare, so I know from the inside how a clinic works: appointments, no-shows, multi-practitioner teams and the administrative load. I work close to the business: I talk to the people who use the system, measure what happens in production and prioritize what saves them time or money. I want to join a product team where I can build with ownership.</p>
+      </section>
+
+      <section>
+        <h2>Main project</h2>
+        <div class="job-head">
+          <h3>Wapoo — AI-powered customer service and scheduling over WhatsApp</h3>
+          <span>Sep 2026 – present</span>
+        </div>
+        <p class="job-sub">Founder and sole developer · Product, architecture, development, deployment and support</p>
+
+        <div class="kpis">
+          <div class="kpi"><b>16 s</b><span>median assistant response time in production</span></div>
+          <div class="kpi"><b>24/7</b><span>1 in 5 replies sent outside business hours</span></div>
+          <div class="kpi"><b>~26k</b><span>lines of TypeScript and SQL across 90+ commits</span></div>
+          <div class="kpi"><b>39/39</b><span>tenant-isolation checks passed</span></div>
+        </div>
+
+        <ul class="bul">
+          <li><b>Conversational assistant built on the Claude API:</b> answers the business's WhatsApp, books and reschedules appointments under custom rules, coordinates group sessions by checking with each member and hands off to a person when needed. Uses tool use, prompt caching and web search; AI cost of about USD 6 per month per customer.</li>
+          <li><b>Payment receipt reading</b> (image or PDF): checks amount and destination account and confirms the deposit with no manual step.</li>
+          <li><b>WhatsApp Cloud API (Meta) integration:</b> one number per customer, per-number routing, per-app HMAC signature verification and message templates for reminders and notices.</li>
+          <li><b>Multi-tenant SaaS architecture:</b> migrated a single-customer system to many customers with zero downtime. Data isolation with PostgreSQL Row Level Security on 25 tables, per-customer secrets in Supabase Vault and an automated test proving no customer can see another's data.</li>
+          <li><b>Admin dashboard and end-customer portal:</b> calendar, client records, finances, per-practitioner payouts, role-based team access, push notifications, daily summary and an installable app (PWA).</li>
+          <li><b>Per-customer configuration:</b> custom domain, branding (logo and colors), currency, time zone with daylight saving and appointment lengths. Before release I checked more than 10,000 time conversions and 5,000 amounts against the previous version so production customers saw no change.</li>
+          <li><b>Platform billing module:</b> monthly plan with an included AI usage cap, metered overage and tracking of payments and arrears.</li>
+          <li><b>Operations:</b> scheduled jobs (reminders, follow-ups), database migrations applied in production, model usage monitoring and deployments on Vercel.</li>
+        </ul>
+
+        <p class="sub-h">Selected technical decisions</p>
+        <div class="decisions">
+          <div class="decision"><b>Isolation in the database, not only in code</b><p>Every query goes through PostgreSQL policies tied to the user's organization. A bug in the application is not enough to expose another customer's data.</p></div>
+          <div class="decision"><b>Big changes without affecting real users</b><p>The multi-tenant migration was done in small steps, each checked against the previous behavior, while the assistant kept serving customers.</p></div>
+          <div class="decision"><b>Controlled AI cost</b><p>Prompt caching, per-customer token metering and a cap included in the plan, so the margin does not depend on usage.</p></div>
+        </div>
+
+        <p class="sub-h">How I work with AI coding agents</p>
+        <div class="decisions">
+          <div class="decision"><b>Context and scope before asking for code</b><p>Every large change starts with a written scope and business rules, and moves in small steps with a verifiable goal. That is how I did the multi-tenant migration in six steps with zero downtime.</p></div>
+          <div class="decision"><b>I do not take the AI's word for it</b><p>A caching change made with the agent looked fine, but in production the dashboard started logging people out. The cause: it cached database failures. I reverted it and set the rule that an error is never cached.</p></div>
+          <div class="decision"><b>Verification with evidence</b><p>Automated tests against real behavior: 39 tenant-isolation checks, end-to-end conversation scripts for the assistant and large-scale comparisons against the previous version before each release.</p></div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Experience</h2>
+        <div class="job-head">
+          <h3>Automation developer · Freelance</h3>
+          <span>Present</span>
+        </div>
+        <ul class="bul" style="margin-top: 10px">
+          <li>I automate customer service, scheduling and payments for small businesses with AI, WhatsApp and web integrations.</li>
+          <li>I map how each business works, propose the solution, build it and keep it running in production.</li>
+        </ul>
+        <div class="job-head" style="margin-top: 22px">
+          <h3>Physical therapist · Clinical practice</h3>
+          <span>Present</span>
+        </div>
+        <ul class="bul" style="margin-top: 10px">
+          <li>I work in two clinics within an interdisciplinary team: orthopedics, physical education, nutrition, chiropractic and front desk.</li>
+          <li>First-hand knowledge of healthcare as a user of scheduling and practice-management systems: an advantage for healthtech products.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Education</h2>
+        <div class="job-head">
+          <h3>Bachelor's degree in Physical Therapy</h3>
+          <span>Universidad de Mendoza · 2025</span>
+        </div>
+        <p class="job-sub">Licenciatura en Kinesiología y Fisioterapia. Focus on rehabilitation of sports and orthopedic injuries.</p>
+        <div class="job-head" style="margin-top: 14px">
+          <h3>Software development</h3>
+          <span>Self-taught</span>
+        </div>
+        <p class="job-sub">Self-directed training in full-stack web development, databases and AI model integration, applied to real projects.</p>
+      </section>
+    </div>
+
+    <aside>
+      <section>
+        <h2>Contact</h2>
+        <div class="contact">
+          <div><small>Email</small><a href="mailto:javier123balastegui@gmail.com">javier123balastegui@gmail.com</a></div>
+          <div><small>LinkedIn</small><a href="https://www.linkedin.com/in/javierbalastegui" target="_blank" rel="noopener">linkedin.com/in/javierbalastegui</a></div>
+          <div><small>Wapoo source code</small><a href="https://github.com/javier123balastegui-droid/wapoo" target="_blank" rel="noopener">github.com/javier123balastegui-droid/wapoo</a></div>
+          <div><small>Location</small><span>Villa Carlos Paz, Córdoba, Argentina (GMT-3)</span></div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Skills</h2>
+        <div class="stack">
+          <div><small>Frontend</small><div class="tags"><span class="tag">React 19</span><span class="tag">Next.js 16</span><span class="tag">TypeScript</span><span class="tag">Tailwind CSS</span><span class="tag">PWA</span></div></div>
+          <div><small>Backend and data</small><div class="tags"><span class="tag">Node.js</span><span class="tag">PostgreSQL</span><span class="tag">Supabase</span><span class="tag">RLS</span><span class="tag">SQL</span><span class="tag">Vault</span></div></div>
+          <div><small>AI</small><div class="tags"><span class="tag">Claude API</span><span class="tag">Tool use</span><span class="tag">Prompt caching</span><span class="tag">Prompt design</span><span class="tag">Document reading</span><span class="tag">Claude Code</span></div></div>
+          <div><small>Integrations</small><div class="tags"><span class="tag">WhatsApp Cloud API</span><span class="tag">Webhooks</span><span class="tag">HMAC</span><span class="tag">Web Push</span></div></div>
+          <div><small>Infrastructure</small><div class="tags"><span class="tag">Vercel</span><span class="tag">Cron jobs</span><span class="tag">Git</span><span class="tag">ESLint</span></div></div>
+        </div>
+      </section>
+
+      <section>
+        <h2>How I work</h2>
+        <ul class="plain">
+          <li>From the user's problem to a solution in production.</li>
+          <li>Small releases, verified before shipping.</li>
+          <li>Decisions backed by real usage data.</li>
+          <li>Development with AI agents (Claude Code), with my own review and tests.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Languages</h2>
+        <ul class="plain"><li>Spanish: native</li><li>English: basic, actively studying</li></ul>
+      </section>
+    </aside>
+  </div>
+
+  <footer>
+    <span>Javier Balastegui · Full-stack developer · <a href="../">Versión en español</a></span>
+    <button class="print" type="button" onclick="window.print()">Save as PDF</button>
+  </footer>
+</main>
+
+</body>
+</html>
