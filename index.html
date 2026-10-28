@@ -144,7 +144,7 @@ footer { margin-top: 36px; padding-top: 14px; border-top: 1px solid var(--line);
         <div class="kpis">
           <div class="kpi"><b>16 s</b><span>mediana de respuesta del asistente en producción</span></div>
           <div class="kpi"><b>24/7</b><span>1 de cada 5 respuestas, fuera del horario de atención</span></div>
-          <div class="kpi"><b>~26 mil</b><span>líneas de TypeScript y SQL en 91 commits</span></div>
+          <div class="kpi"><b>~26 mil</b><span>líneas de TypeScript y SQL en más de 90 commits</span></div>
           <div class="kpi"><b>39/39</b><span>controles de aislamiento entre clientes superados</span></div>
         </div>
 
@@ -164,6 +164,13 @@ footer { margin-top: 36px; padding-top: 14px; border-top: 1px solid var(--line);
           <div class="decision"><b>Aislamiento en la base, no solo en el código</b><p>Cada consulta pasa por políticas de PostgreSQL atadas a la organización del usuario. Un error en la aplicación no alcanza para exponer datos de otro cliente.</p></div>
           <div class="decision"><b>Cambios grandes sin afectar a usuarios reales</b><p>La migración a varios clientes se hizo en pasos chicos, cada uno comprobado contra el comportamiento anterior, mientras el asistente seguía atendiendo.</p></div>
           <div class="decision"><b>Costo de IA controlado</b><p>Caché de prompts, medición de tokens por cliente y un tope incluido en el abono, para que el margen no dependa del uso.</p></div>
+        </div>
+
+        <p class="sub-h">Cómo desarrollo con agentes de IA</p>
+        <div class="decisions">
+          <div class="decision"><b>Contexto y alcance antes de pedir código</b><p>Cada cambio grande empieza con un documento de alcance y reglas de negocio, y avanza en pasos chicos con un objetivo verificable. Así hice la migración a varios clientes en seis pasos, sin cortar el servicio.</p></div>
+          <div class="decision"><b>No doy por bueno lo que la IA afirma</b><p>Un cambio de caché hecho con el agente parecía funcionar, pero en producción el panel empezó a cerrar sesiones. La causa: guardaba en caché las fallas de la base. Lo revertí y quedó la regla de no cachear nunca un error.</p></div>
+          <div class="decision"><b>Verificación con evidencia</b><p>Pruebas automáticas contra el comportamiento real: 39 controles de aislamiento entre clientes, guiones de conversación de punta a punta para el asistente y comparaciones masivas contra la versión anterior antes de publicar.</p></div>
         </div>
       </section>
 
@@ -230,7 +237,7 @@ footer { margin-top: 36px; padding-top: 14px; border-top: 1px solid var(--line);
           <li>Del problema del usuario a la solución en producción.</li>
           <li>Entregas chicas, verificadas antes de publicar.</li>
           <li>Decisiones apoyadas en datos reales de uso.</li>
-          <li>Desarrollo asistido por IA, con revisión y pruebas propias.</li>
+          <li>Desarrollo con agentes de IA (Claude Code), con revisión y pruebas propias.</li>
         </ul>
       </section>
 
