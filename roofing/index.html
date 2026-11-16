@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Roofing Lead Workflow · Javier Balastegui</title>
+<meta name="description" content="A sample AI marketing workflow for a roofing company in Dallas–Fort Worth: research, ads, landing page, follow-up and a reusable process, built by Javier Balastegui.">
+<meta name="author" content="Javier Balastegui">
+<meta name="robots" content="noindex">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://javier123balastegui-droid.github.io/roofing/">
+<meta property="og:title" content="From hailstorm to inspection booked: an AI lead workflow for a roofing company">
+<meta property="og:description" content="A sample AI marketing workflow for a roofing company in Dallas–Fort Worth: research, ads, landing page, follow-up and a reusable process, built by Javier Balastegui.">
+<meta property="og:image" content="https://javier123balastegui-droid.github.io/roofing/og-roofing.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+:root {
+  --bg: #f6f5f1; --paper: #ffffff; --ink: #16181d; --ink-soft: #4b505a; --muted: #6b7079;
+  --line: #e4e2dc; --accent: #1f4e79; --accent-soft: #e8eef5; --warn: #8a4b0f; --warn-soft: #fbf1e4;
+  --ok: #1d6b45; --ok-soft: #e6f3ec;
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Inter", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111317; --paper: #181b21; --ink: #e9eaee; --ink-soft: #b4b8c1; --muted: #858a95;
+    --line: #2a2e36; --accent: #8db8e3; --accent-soft: #1d2836; --warn: #e8b27a; --warn-soft: #2b2218;
+    --ok: #7fd1a6; --ok-soft: #17271f; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #111317; --paper: #181b21; --ink: #e9eaee; --ink-soft: #b4b8c1; --muted: #858a95;
+  --line: #2a2e36; --accent: #8db8e3; --accent-soft: #1d2836; --warn: #e8b27a; --warn-soft: #2b2218;
+  --ok: #7fd1a6; --ok-soft: #17271f; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: .97rem; line-height: 1.62; -webkit-font-smoothing: antialiased; margin: 0; }
+.sheet { max-width: 920px; margin: clamp(0px, 4vw, 40px) auto; background: var(--paper); border: 1px solid var(--line); border-radius: 4px; padding: clamp(24px, 5vw, 56px) max(16px, clamp(20px, 5vw, 56px)); }
+h1, h2, h3, p { margin: 0; }
+a { color: var(--accent); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.eyebrow { font-size: .74rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--font-display); font-weight: 600; font-size: clamp(2rem, 5vw, 2.9rem); line-height: 1.06; letter-spacing: -0.02em; margin-top: 10px; }
+.lede { margin-top: 14px; font-size: 1.08rem; color: var(--ink-soft); max-width: 62ch; }
+.byline { margin-top: 18px; font-size: .9rem; color: var(--ink-soft); display: flex; flex-wrap: wrap; gap: 6px 18px; padding-bottom: 26px; border-bottom: 2px solid var(--ink); }
+.built { margin-top: 14px; font-size: .9rem; color: var(--ink-soft); }
+.summary { margin-top: 8px; }
+.note { margin-top: 22px; background: var(--accent-soft); border-radius: 6px; padding: 14px 18px; font-size: .92rem; }
+section { margin-top: 44px; }
+h2 { font-family: var(--font-display); font-weight: 600; font-size: 1.5rem; letter-spacing: -0.01em; display: flex; gap: 12px; align-items: baseline; }
+h2 .n { font-family: var(--font-mono); font-size: .85rem; color: var(--muted); font-weight: 500; }
+h3 { font-size: 1rem; font-weight: 600; margin-top: 20px; }
+section > p, .p { margin-top: 12px; color: var(--ink-soft); max-width: 70ch; }
+ul, ol { margin: 10px 0 0; padding-left: 1.2em; color: var(--ink-soft); }
+li + li { margin-top: 6px; }
+b, strong { color: var(--ink); font-weight: 600; }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-top: 16px; }
+.card { border: 1px solid var(--line); border-radius: 8px; padding: 16px; background: var(--paper); }
+.card h3 { margin-top: 0; }
+.card p { margin-top: 6px; color: var(--ink-soft); font-size: .92rem; }
+.tag { display: inline-block; font-size: .72rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); background: var(--accent-soft); padding: 2px 8px; border-radius: 99px; }
+table { width: 100%; border-collapse: collapse; margin-top: 14px; font-size: .9rem; }
+th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-size: .74rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+.table-wrap { overflow-x: auto; }
+.src { font-size: .78rem; color: var(--muted); }
+
+/* Ads */
+.ads { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; margin-top: 18px; }
+.ad { border: 1px solid var(--line); border-radius: 10px; overflow: hidden; background: var(--paper); display: flex; flex-direction: column; }
+.ad-head { display: flex; align-items: center; gap: 8px; padding: 10px 12px; font-size: .82rem; }
+.ad-logo { width: 28px; height: 28px; border-radius: 50%; background: #1f4e79; color: #fff; display: grid; place-items: center; font-weight: 700; font-size: .8rem; }
+.ad-head small { display: block; color: var(--muted); font-size: .72rem; }
+.ad-text { padding: 0 12px 10px; font-size: .86rem; color: var(--ink); }
+.ad-visual { aspect-ratio: 1 / 1; position: relative; display: flex; flex-direction: column; justify-content: flex-end; padding: 18px; color: #fff; }
+.v1 { background: linear-gradient(180deg, #23314a 0%, #3b5a7f 55%, #465a72 100%); }
+.v2 { background: linear-gradient(160deg, #3a2a1c 0%, #7a5634 60%, #725739 100%); }
+.v3 { background: linear-gradient(160deg, #13342a 0%, #2e6b54 60%, #48715d 100%); }
+.ad-visual .big { font-family: var(--font-display); font-size: 1.55rem; line-height: 1.1; font-weight: 600; text-shadow: 0 1px 8px rgba(0,0,0,.35); }
+.ad-visual .small { margin-top: 6px; font-size: .82rem; opacity: .92; }
+.ad-visual svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.ad-visual > *:not(svg) { position: relative; }
+.ad-cta { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 10px 12px; border-top: 1px solid var(--line); font-size: .82rem; margin-top: auto; }
+.ad-cta b { font-size: .86rem; }
+.ad-cta span.btn { background: var(--accent-soft); color: var(--accent); font-weight: 600; padding: 6px 10px; border-radius: 6px; white-space: nowrap; }
+details { margin-top: 10px; border: 1px solid var(--line); border-radius: 8px; padding: 10px 14px; }
+details summary { cursor: pointer; font-weight: 600; font-size: .9rem; }
+pre { font-family: var(--font-mono); font-size: .8rem; line-height: 1.55; white-space: pre-wrap; background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 12px 14px; margin: 10px 0 0; color: var(--ink); overflow-x: auto; }
+
+/* Landing mock */
+.browser { margin-top: 18px; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+.browser-bar { display: flex; gap: 6px; align-items: center; padding: 8px 12px; border-bottom: 1px solid var(--line); background: var(--bg); font-size: .75rem; color: var(--muted); font-family: var(--font-mono); }
+.dot { width: 9px; height: 9px; border-radius: 50%; background: var(--line); }
+.lp-hero { padding: 28px 24px; background: linear-gradient(180deg, #1c2a40, #2f4a6c); color: #fff; }
+.lp-hero h3 { margin: 0; margin-top: 0; font-family: var(--font-display); font-size: 1.6rem; line-height: 1.15; font-weight: 600; }
+.lp-hero p { margin-top: 10px; opacity: .9; max-width: 52ch; }
+.lp-form { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 8px; }
+.lp-form span { background: rgba(255,255,255,.95); color: #444; border-radius: 6px; padding: 9px 12px; font-size: .82rem; flex: 1 1 140px; }
+.lp-consent { margin-top: 12px; display: flex; gap: 8px; align-items: flex-start; font-size: .74rem; line-height: 1.45; color: #e6ebf2; max-width: 60ch; }
+.lp-consent .box { flex: 0 0 auto; width: 14px; height: 14px; margin-top: 2px; border: 1.5px solid #e6ebf2; border-radius: 3px; }
+.lp-form span.go { background: #f2b33d; color: #1c1c1c; font-weight: 700; flex: 0 1 auto; }
+.lp-trust { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; padding: 18px 24px; font-size: .86rem; }
+.lp-trust div b { display: block; }
+.lp-trust div { color: var(--ink-soft); }
+
+/* Timeline */
+.timeline { margin-top: 16px; border-left: 2px solid var(--line); padding-left: 18px; }
+.step { position: relative; padding-bottom: 18px; }
+.step::before { content: ""; position: absolute; left: -24px; top: 6px; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); }
+.step .when { font-family: var(--font-mono); font-size: .78rem; color: var(--accent); }
+.step .msg { margin-top: 6px; background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; font-size: .88rem; color: var(--ink); }
+
+/* Fixes */
+.fix { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; }
+.fix > div { border-radius: 8px; padding: 12px 14px; font-size: .88rem; }
+.fix .bad { background: var(--warn-soft); }
+.fix .good { background: var(--ok-soft); }
+.fix .lbl { font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.fix .bad .lbl { color: var(--warn); }
+.fix .good .lbl { color: var(--ok); }
+.why { margin-top: 8px; font-size: .88rem; color: var(--ink-soft); }
+@media (max-width: 640px) { .fix { grid-template-columns: 1fr; } }
+
+footer { margin-top: 48px; padding-top: 20px; border-top: 2px solid var(--ink); font-size: .9rem; color: var(--ink-soft); display: flex; flex-wrap: wrap; gap: 8px 20px; justify-content: space-between; }
+</style>
+</head>
+<body>
+<main class="sheet">
+
+<p class="eyebrow">Sample project · AI marketing workflow</p>
+<h1>From hailstorm to inspection booked: an AI lead workflow for a roofing company</h1>
+<p class="lede">I took a vague request, "we need more roof jobs this spring", and turned it into research, ads, a landing page, a follow-up sequence and a process anyone on a team can repeat. Everything here was produced with AI and checked by me.</p>
+<div class="byline">
+  <span><b>Javier Balastegui</b></span>
+  <span>Córdoba, Argentina · remote</span>
+  <span><a href="https://javier123balastegui-droid.github.io/en/">CV</a></span>
+  <span><a href="https://www.linkedin.com/in/javierbalastegui">LinkedIn</a></span>
+</div>
+<p class="note"><b>Note:</b> "Ridgeline Roofing" is a fictional client I made up for this exercise. The market facts are real and linked to their sources; the ads, page and messages are drafts to show the process, not a live campaign.</p>
+<p class="built"><b>Built with:</b> Claude (research, copy and prompts), web search with every source checked by hand, HTML and CSS · <b>Time:</b> about half a day</p>
+<ul class="summary">
+  <li><b>The problem:</b> a roofing company gets most of its work after hailstorms, but leads arrive all at once and many are answered too late to win the job</li>
+  <li><b>What I delivered:</b> research, 3 ads, a landing page, a 6-step follow-up and reusable prompts</li>
+  <li><b>The KPI I'd run it on:</b> cost per booked inspection</li>
+</ul>
+
+<section>
+  <h2><span class="n">01</span>The brief, and the questions I asked first</h2>
+  <p>The request: <i>"Ridgeline Roofing, Dallas–Fort Worth. We need more roof jobs this spring."</i> Before writing a single ad, I broke it into the questions that change the answer:</p>
+  <div class="table-wrap"><table>
+    <tr><th>Question</th><th>Assumption I made</th><th>Why it matters</th></tr>
+    <tr><td>Who exactly are we trying to reach?</td><td>Homeowners in DFW after a hail event, plus owners of older roofs</td><td>Different message for "storm just hit" vs. "roof is getting old"</td></tr>
+    <tr><td>What is the first step we sell?</td><td>A free inspection with a photo report, not a roof</td><td>Nobody buys a $15k roof from an ad; they book an inspection</td></tr>
+    <tr><td>How fast can the team answer a lead?</td><td>Target: under 5 minutes, automated first touch</td><td>Speed to lead decides who gets the job</td></tr>
+    <tr><td>What can we legally promise?</td><td>Nothing about insurance paying or deductibles</td><td>Texas law limits what roofers can say about deductibles</td></tr>
+    <tr><td>How do we know it worked?</td><td>Cost per booked inspection, not cost per click</td><td>Clicks are cheap; inspections are the real signal</td></tr>
+  </table></div>
+</section>
+
+<section>
+  <h2><span class="n">02</span>Research: what the market looks like</h2>
+  <p>I asked the AI to research the market, then opened every source myself. Where sources disagreed, I wrote the copy to be safe instead of picking the most exciting number.</p>
+  <div class="cards">
+    <div class="card"><span class="tag">Demand</span><h3>Texas leads the US in hail damage</h3><p>Texas has been the top state for hail damage claims for 11 years in a row, and North Texas is where hail claims are most frequent.</p><p class="src">Sources: <a href="https://nicb.org/node/121850">NICB</a>, <a href="https://uphelp.org/texas-is-entering-peak-hail-season-and-most-homeowners-dont-understand-the-deductible-that-could-cost-them-thousands/">United Policyholders</a></p></div>
+    <div class="card"><span class="tag">Timing</span><h3>Peak season: April to June</h3><p>March and July are also active. Campaigns should be ready before the season and switch on within hours of a storm in the affected area. On Meta, roofing counts as housing repair, a Special Ad Category: no ZIP targeting, minimum 15-mile radius.</p><p class="src">Source: <a href="https://prnewswire.com/news-releases/nicb-hail-claims-fluctuate-over-past-three-years-300268612.html">NICB (claims by month, 2013–2015)</a></p></div>
+    <div class="card"><span class="tag">Objection</span><h3>Deductibles are the real fear</h3><p>A 2% wind and hail deductible is now standard in North Texas. On a home insured for $400k, that's the first $8,000 of damage, so homeowners hesitate to even check.</p><p class="src">Source: <a href="https://uphelp.org/texas-is-entering-peak-hail-season-and-most-homeowners-dont-understand-the-deductible-that-could-cost-them-thousands/">United Policyholders</a></p></div>
+    <div class="card"><span class="tag">Speed</span><h3>The first to respond usually wins</h3><p>Vendor blogs for roofers, citing general sales studies, show conversion dropping sharply after the first 5 to 30 minutes. The numbers vary by source, so I use them as a direction, not a promise.</p><p class="src">Sources: <a href="https://www.jobnimbus.com/blog/speed-to-lead-the-simplest-way-to-win-more-roofing-jobs-without-more-leads">JobNimbus</a>, <a href="https://pipelineon.com/blog/roofing-lead-response-time/">Pipelineon</a></p></div>
+    <div class="card"><span class="tag">Compliance</span><h3>Roofers can't waive deductibles</h3><p>In Texas it is illegal for a contractor to offer to waive, rebate or absorb a homeowner's deductible. Ads must never hint at "we'll cover your deductible".</p><p class="src">Source: <a href="https://tdi.texas.gov/CONSUMER/storms/roofing-and-insurance-know-the-law.html">Texas Department of Insurance</a></p></div>
+    <div class="card"><span class="tag">Deadlines</span><h3>Claim windows depend on the policy</h3><p>Many Texas policies ask for claims within about a year of the storm, but it varies. The copy says "check your policy", never a fixed date.</p><p class="src">Source: <a href="https://www.kin.com/blog/texas-hail-damage-home-insurance/">Kin Insurance</a></p></div>
+  </div>
+</section>
+
+<section>
+  <h2><span class="n">03</span>Three audiences, three messages</h2>
+  <div class="cards">
+    <div class="card"><h3>1 · "The storm just hit"</h3><p>Homeowner in an area hit by hail in the last 30 days. Worried, unsure if there's damage, afraid of the deductible. <b>Message:</b> find out for free before you call your insurer.</p></div>
+    <div class="card"><h3>2 · "My roof is getting old"</h3><p>Home built 15 to 25 years ago, no recent storm. Thinking about the next season. <b>Message:</b> know how many years your roof has left, with photos.</p></div>
+    <div class="card"><h3>3 · Landlords and investors</h3><p>Owns rentals or just bought a property. Needs fast, documented answers for tenants and insurance. <b>Message:</b> one report per property, same-week inspection.</p></div>
+  </div>
+</section>
+
+<section>
+  <h2><span class="n">04</span>Ads, one per audience</h2>
+  <p>Each ad has one job: get an inspection booked. The visuals are layouts I designed for the drafts; the image prompt under each one is what I'd give an image model to produce the final photo.</p>
+  <div class="ads">
+    <article class="ad" aria-label="Ad 1: storm just hit">
+      <div class="ad-head"><div class="ad-logo">R</div><div><b>Ridgeline Roofing</b><small>Sponsored</small></div></div>
+      <p class="ad-text">Hail hit your area this week? Hail damage is often hard to see from the ground. We'll send a local inspector, take photos and show you exactly what we found. Free, no pressure.</p>
+      <div class="ad-visual v1">
+        <svg viewBox="0 0 300 300" aria-hidden="true"><g fill="#ffffff" opacity=".22"><circle cx="40" cy="40" r="5"/><circle cx="120" cy="25" r="4"/><circle cx="220" cy="50" r="6"/><circle cx="270" cy="20" r="3"/><circle cx="80" cy="95" r="4"/><circle cx="180" cy="110" r="5"/><circle cx="250" cy="120" r="4"/><circle cx="30" cy="150" r="3"/></g><path d="M20 230 L150 150 L280 230 Z" fill="#0f1a2a" opacity=".55"/></svg>
+        <div class="big">Hail this week?<br>Check your roof free.</div>
+        <div class="small">Photo report in 24 hours · DFW</div>
+      </div>
+      <div class="ad-cta"><b>Book a free inspection</b><span class="btn">Book now</span></div>
+    </article>
+    <article class="ad" aria-label="Ad 2: aging roof">
+      <div class="ad-head"><div class="ad-logo">R</div><div><b>Ridgeline Roofing</b><small>Sponsored</small></div></div>
+      <p class="ad-text">Built between 2000 and 2010? Your roof may be near the end of its life. Get a free 20-minute inspection with photos and a straight answer on how many years it has left.</p>
+      <div class="ad-visual v2">
+        <svg viewBox="0 0 300 300" aria-hidden="true"><g stroke="#ffffff" stroke-width="2" opacity=".2" fill="none"><path d="M0 70 H300 M0 110 H300 M0 150 H300 M0 190 H300"/><path d="M40 70 V110 M110 70 V110 M180 70 V110 M250 70 V110 M75 110 V150 M145 110 V150 M215 110 V150 M40 150 V190 M110 150 V190 M180 150 V190 M250 150 V190"/></g></svg>
+        <div class="big">How many years<br>does your roof have left?</div>
+        <div class="small">Free inspection · photo report</div>
+      </div>
+      <div class="ad-cta"><b>Book a 20-minute check</b><span class="btn">Book now</span></div>
+    </article>
+    <article class="ad" aria-label="Ad 3: landlords">
+      <div class="ad-head"><div class="ad-logo">R</div><div><b>Ridgeline Roofing</b><small>Sponsored</small></div></div>
+      <p class="ad-text">For DFW landlords: after a storm, you need answers for every property, fast. Same-week inspections and one clear photo report per address, ready to share.</p>
+      <div class="ad-visual v3">
+        <svg viewBox="0 0 300 300" aria-hidden="true"><g fill="#ffffff" opacity=".2"><path d="M30 200 L80 160 L130 200 Z"/><path d="M125 200 L175 155 L225 200 Z"/><path d="M200 200 L245 165 L290 200 Z"/></g></svg>
+        <div class="big">Every property,<br>one clear report.</div>
+        <div class="small">For landlords and investors · DFW</div>
+      </div>
+      <div class="ad-cta"><b>Schedule this week</b><span class="btn">Book now</span></div>
+    </article>
+  </div>
+  <details>
+    <summary>Image prompts for the final photos</summary>
+<pre>Ad 1: Close-up of an asphalt shingle roof in a Texas suburb right after a hailstorm, small dents and loose granules visible, wet surface, overcast sky, natural light, documentary photo style, no people, no text.
+
+Ad 2: Aging brown asphalt shingle roof on a 2000s two-story house in a Dallas suburb, slightly curled shingle edges, late afternoon sun, realistic photo, no text, no logos.
+
+Ad 3: Row of three single-family rental houses in a North Texas neighborhood, clear sky after a storm, roof inspector with a tablet in the driveway seen from behind, realistic photo, no text.</pre>
+  </details>
+</section>
+
+<section>
+  <h2><span class="n">05</span>The landing page</h2>
+  <p>One page, one action. Short form, a clear promise, and the answers to the three things people worry about: cost, pressure and insurance.</p>
+  <div class="browser">
+    <div class="browser-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span>ridgelineroofing.example/inspection</span></div>
+    <div class="lp-hero">
+      <h3>Hail in your neighborhood? Know if your roof is damaged, for free.</h3>
+      <p>A local inspector checks your roof, sends you photos within 24 hours and shows you exactly what they found. You decide whether to contact your insurer.</p>
+      <div class="lp-form"><span>Name</span><span>Phone</span><span>ZIP code</span><span class="go">Book my free inspection</span></div>
+      <div class="lp-consent"><span class="box" aria-hidden="true"></span><span>I agree to receive texts from Ridgeline Roofing about my inspection. Up to 4 msgs. Msg &amp; data rates may apply. Reply STOP to opt out, HELP for help. Consent is not required to book. <u>Privacy policy</u>.</span></div>
+    </div>
+    <div class="lp-trust">
+      <div><b>Free, no pressure</b>If there's no damage, we tell you and leave.</div>
+      <div><b>Photo report in 24 h</b>See exactly what the inspector saw.</div>
+      <div><b>Straight talk on insurance</b>We don't handle claims; we document the damage. Your deductible is always yours to pay, as Texas law requires.</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2><span class="n">06</span>Follow-up: answer in minutes, not hours</h2>
+  <p>Most roofing leads are lost after the form, not before it. This sequence runs automatically and stops the moment the lead books or replies. Texts only go to people who checked the consent box, and only during allowed hours under federal and Texas rules; the sender is registered under Texas telemarketing law (SB 140). Every email includes a postal address and an unsubscribe link.</p>
+  <div class="timeline">
+    <div class="step"><div class="when">Minute 0 · SMS</div><div class="msg">Hi {first_name}, it's Ridgeline Roofing. Thanks for your request for {address_short}. Want us to come by {day_1} or {day_2}? Reply 1 or 2. Reply STOP to opt out.</div></div>
+    <div class="step"><div class="when">Minute 5 · call</div><div class="msg">If no reply, a team member calls. Script: confirm the address, ask when the storm was, offer two time slots.</div></div>
+    <div class="step"><div class="when">Hour 2 · email</div><div class="msg"><b>Subject:</b> Your free roof inspection, {first_name}<br>What the inspector checks, what the photo report looks like, and a link to pick a time.</div></div>
+    <div class="step"><div class="when">Day 1 · SMS</div><div class="msg">Ridgeline Roofing: Hi {first_name}, still want that free roof check? We have inspectors in {city} this week. Here's a link to choose a time: {link}</div></div>
+    <div class="step"><div class="when">Day 3 · email</div><div class="msg"><b>Subject:</b> 3 signs of hail damage you can't see from the ground<br>Useful content, no pressure, one booking link at the end.</div></div>
+    <div class="step"><div class="when">Day 7 · last SMS</div><div class="msg">Ridgeline Roofing: Last note from us, {first_name}. If you ever want a free inspection, just reply to this text. Reply STOP to opt out.</div></div>
+  </div>
+</section>
+
+<section>
+  <h2><span class="n">07</span>The reusable workflow</h2>
+  <p>The real deliverable is not this campaign; it's the process. Six steps, each with a prompt template, so anyone on the team can run it for a new city, a new storm or a new service.</p>
+  <ol>
+    <li><b>Brief:</b> turn the request into questions and written assumptions.</li>
+    <li><b>Research:</b> market facts with links; every number gets checked against its source.</li>
+    <li><b>Audiences:</b> 2 to 4 segments, each with a fear and a message.</li>
+    <li><b>Assets:</b> ads, landing page and follow-up, all generated from the same brief.</li>
+    <li><b>Review:</b> a checklist for facts, legal claims and tone before anything goes live.</li>
+    <li><b>Measure:</b> track cost per booked inspection and change one thing per test.</li>
+  </ol>
+  <details>
+    <summary>Prompt template: research</summary>
+<pre>You are a market researcher for a {service} company in {city}.
+Find: (1) when demand peaks and why, (2) what stops homeowners from calling,
+(3) any laws that limit what we can say in ads, (4) how fast leads must be answered.
+For every fact, give the source link and the date of the source.
+If sources disagree, say so and show both; do not pick one.
+Answer in a table: fact | number | source | how reliable it is.</pre>
+  </details>
+  <details>
+    <summary>Prompt template: ads</summary>
+<pre>Using this brief and research: {paste brief + research table}
+Write 3 ads for {audience}. Each ad: primary text (max 45 words), headline (max 8 words),
+call to action, and an image prompt (realistic photo, no text in the image).
+Rules: the offer is a free inspection; never promise that insurance will pay;
+never mention waiving or covering deductibles; never suggest we handle, negotiate or judge insurance claims; no fake urgency; plain English,
+6th-grade reading level.</pre>
+  </details>
+  <details>
+    <summary>Prompt template: review checklist</summary>
+<pre>Review these assets as a compliance and quality editor.
+Flag anything that: promises insurance coverage or results; mentions deductibles
+in a way that suggests we pay them; suggests we act as the adjuster or judge whether to file a claim; states a claim deadline as a fact;
+uses a statistic without a source; sounds pushy or fake-urgent.
+For each problem: quote the line, explain the risk, propose a fixed line.</pre>
+  </details>
+</section>
+
+<section>
+  <h2><span class="n">08</span>Where AI output goes wrong, and how I guard against it</h2>
+  <p>AI output that sounds convincing is not the same as output you can publish. Checking the research turned up three traps. On the left, the kind of line an unguided AI draft produces; on the right, what went into the assets.</p>
+
+  <h3>1 · A promise the client can't legally make</h3>
+  <div class="fix">
+    <div class="bad"><div class="lbl">Unguided draft</div>"Storm damage? Your insurance could cover your new roof, and we'll help with the deductible."</div>
+    <div class="good"><div class="lbl">Final draft</div>"We'll show you photos of what we found, so you can decide whether to call your insurer. Your deductible is always yours to pay, as Texas law requires."</div>
+  </div>
+  <p class="why">Texas prohibits contractors from offering to waive or absorb deductibles. I added this rule to the ad prompt and to the review checklist, so it can't come back. Contractors also can't act as, or suggest they are, the insurance adjuster.</p>
+
+  <h3>2 · A deadline stated as a fact</h3>
+  <div class="fix">
+    <div class="bad"><div class="lbl">Unguided draft</div>"You only have 1 year to file your hail claim. Don't lose your coverage!"</div>
+    <div class="good"><div class="lbl">Final draft</div>"Claim windows depend on your policy. Check yours, and get your roof inspected while the damage is recent."</div>
+  </div>
+  <p class="why">The sources disagreed: many policies use about a year, some allow two, some differ. When sources disagree, the copy says less, not more.</p>
+
+  <h3>3 · A statistic with a weak source</h3>
+  <div class="fix">
+    <div class="bad"><div class="lbl">Unguided draft</div>"Responding in 5 minutes makes you 21x more likely to win the job."</div>
+    <div class="good"><div class="lbl">Final draft</div>Kept as an internal goal ("first touch under 5 minutes"), not as a claim in any ad or report.</div>
+  </div>
+  <p class="why">The number traces back to cross-industry and vendor studies, not roofing data. It's a good reason to be fast; it's not a fact to sell with.</p>
+</section>
+
+<section>
+  <h2><span class="n">09</span>How I'd measure it</h2>
+  <div class="table-wrap"><table>
+    <tr><th>Metric</th><th>What it tells us</th><th>First target</th></tr>
+    <tr><td>Cost per lead</td><td>Are the ads reaching the right people?</td><td>Set from the first 2 weeks of data</td></tr>
+    <tr><td>Time to first contact</td><td>Is the follow-up actually fast?</td><td>Under 5 minutes, every lead</td></tr>
+    <tr><td>Lead → inspection booked</td><td>Is the offer and follow-up working?</td><td>Track weekly, improve one step at a time</td></tr>
+    <tr><td>Cost per booked inspection</td><td>The number that decides the budget</td><td>The main KPI for the campaign</td></tr>
+    <tr><td>Inspection → signed job</td><td>Lead quality, by audience and ZIP</td><td>Compare audiences after 30 days</td></tr>
+  </table></div>
+  <h3>First tests, one change at a time</h3>
+  <ul>
+    <li>Week 1: ad 1 vs. ad 2 in the same area; keep the winner.</li>
+    <li>Week 2: form with 3 fields vs. 5 fields on the landing page.</li>
+    <li>Week 3: first SMS with two time options vs. a booking link.</li>
+    <li>Week 4: storm-triggered ads (15-mile radius around the hit area) vs. always-on ads.</li>
+  </ul>
+</section>
+
+<footer>
+  <span>Javier Balastegui · I build AI products and workflows. Before this, I built <b>Wapoo</b>, an AI WhatsApp assistant that books classes and handles payments for a real academy.</span>
+  <span><a href="https://www.linkedin.com/in/javierbalastegui">LinkedIn</a> · <a href="https://javier123balastegui-droid.github.io/en/">CV</a></span>
+  <span class="cta"><b>Open to roles building AI workflows like this one.</b> <a href="mailto:javier123balastegui@gmail.com">javier123balastegui@gmail.com</a></span>
+</footer>
+
+</main>
+</body>
+</html>
