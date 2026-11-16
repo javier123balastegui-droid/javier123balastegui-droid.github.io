@@ -79,6 +79,14 @@ th { font-size: .74rem; letter-spacing: .08em; text-transform: uppercase; color:
 .ad-logo { width: 28px; height: 28px; border-radius: 50%; background: #1f4e79; color: #fff; display: grid; place-items: center; font-weight: 700; font-size: .8rem; }
 .ad-head small { display: block; color: var(--muted); font-size: .72rem; }
 .ad-text { padding: 0 12px 10px; font-size: .86rem; color: var(--ink); }
+.ad-photo { display: block; width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; }
+.ab { margin-top: 28px; }
+.ab h3 { margin: 0 0 12px; font-size: 1.05rem; }
+.ab-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; max-width: 640px; }
+.ab-pair figure { margin: 0; }
+.ab-pair img { display: block; width: 100%; height: auto; border-radius: 10px; border: 1px solid var(--line); }
+.ab-pair figcaption { margin-top: 6px; font-size: .85rem; color: var(--ink-soft); }
+.ab p { max-width: 68ch; margin-top: 14px; }
 .ad-visual { aspect-ratio: 1 / 1; position: relative; display: flex; flex-direction: column; justify-content: flex-end; padding: 18px; color: #fff; }
 .v1 { background: linear-gradient(180deg, #23314a 0%, #3b5a7f 55%, #465a72 100%); }
 .v2 { background: linear-gradient(160deg, #3a2a1c 0%, #7a5634 60%, #725739 100%); }
@@ -147,7 +155,7 @@ footer { margin-top: 48px; padding-top: 20px; border-top: 2px solid var(--ink); 
 <p class="built"><b>Built with:</b> Claude (research, copy and prompts), web search with every source checked by hand, HTML and CSS · <b>Time:</b> about half a day</p>
 <ul class="summary">
   <li><b>The problem:</b> a roofing company gets most of its work after hailstorms, but leads arrive all at once and many are answered too late to win the job</li>
-  <li><b>What I delivered:</b> research, 3 ads, a landing page, a 6-step follow-up and reusable prompts</li>
+  <li><b>What I delivered:</b> research, 3 ads (plus an A/B variant) in the 3 Meta formats, a landing page, a 6-step follow-up and reusable prompts</li>
   <li><b>The KPI I'd run it on:</b> cost per booked inspection</li>
 </ul>
 
@@ -188,46 +196,44 @@ footer { margin-top: 48px; padding-top: 20px; border-top: 2px solid var(--ink); 
 
 <section>
   <h2><span class="n">04</span>Ads, one per audience</h2>
-  <p>Each ad has one job: get an inspection booked. The visuals are layouts I designed for the drafts; the image prompt under each one is what I'd give an image model to produce the final photo.</p>
+  <p>Each ad has one job: get an inspection booked. The photos were generated with an image model from the prompts below, with no text in the image; I added the headline, brand and button on top as a separate layer, so the copy is always exact and easy to change. Each ad was exported in the three Meta formats (1:1 feed, 4:5 feed, 9:16 stories).</p>
   <div class="ads">
     <article class="ad" aria-label="Ad 1: storm just hit">
       <div class="ad-head"><div class="ad-logo">R</div><div><b>Ridgeline Roofing</b><small>Sponsored</small></div></div>
       <p class="ad-text">Hail hit your area this week? Hail damage is often hard to see from the ground. We'll send a local inspector, take photos and show you exactly what we found. Free, no pressure.</p>
-      <div class="ad-visual v1">
-        <svg viewBox="0 0 300 300" aria-hidden="true"><g fill="#ffffff" opacity=".22"><circle cx="40" cy="40" r="5"/><circle cx="120" cy="25" r="4"/><circle cx="220" cy="50" r="6"/><circle cx="270" cy="20" r="3"/><circle cx="80" cy="95" r="4"/><circle cx="180" cy="110" r="5"/><circle cx="250" cy="120" r="4"/><circle cx="30" cy="150" r="3"/></g><path d="M20 230 L150 150 L280 230 Z" fill="#0f1a2a" opacity=".55"/></svg>
-        <div class="big">Hail this week?<br>Check your roof free.</div>
-        <div class="small">Photo report in 24 hours · DFW</div>
-      </div>
+      <img class="ad-photo" src="ads/ad-1.jpg" width="720" height="720" loading="lazy" alt="Hail-damaged asphalt shingles with hailstones, headline: Hail this week? Check your roof free.">
       <div class="ad-cta"><b>Book a free inspection</b><span class="btn">Book now</span></div>
     </article>
     <article class="ad" aria-label="Ad 2: aging roof">
       <div class="ad-head"><div class="ad-logo">R</div><div><b>Ridgeline Roofing</b><small>Sponsored</small></div></div>
       <p class="ad-text">Built between 2000 and 2010? Your roof may be near the end of its life. Get a free 20-minute inspection with photos and a straight answer on how many years it has left.</p>
-      <div class="ad-visual v2">
-        <svg viewBox="0 0 300 300" aria-hidden="true"><g stroke="#ffffff" stroke-width="2" opacity=".2" fill="none"><path d="M0 70 H300 M0 110 H300 M0 150 H300 M0 190 H300"/><path d="M40 70 V110 M110 70 V110 M180 70 V110 M250 70 V110 M75 110 V150 M145 110 V150 M215 110 V150 M40 150 V190 M110 150 V190 M180 150 V190 M250 150 V190"/></g></svg>
-        <div class="big">How many years<br>does your roof have left?</div>
-        <div class="small">Free inspection · photo report</div>
-      </div>
+      <img class="ad-photo" src="ads/ad-2.jpg" width="720" height="720" loading="lazy" alt="Aging shingle roof on a two-story brick house, headline: How many years does your roof have left?">
       <div class="ad-cta"><b>Book a 20-minute check</b><span class="btn">Book now</span></div>
     </article>
     <article class="ad" aria-label="Ad 3: landlords">
       <div class="ad-head"><div class="ad-logo">R</div><div><b>Ridgeline Roofing</b><small>Sponsored</small></div></div>
       <p class="ad-text">For DFW landlords: after a storm, you need answers for every property, fast. Same-week inspections and one clear photo report per address, ready to share.</p>
-      <div class="ad-visual v3">
-        <svg viewBox="0 0 300 300" aria-hidden="true"><g fill="#ffffff" opacity=".2"><path d="M30 200 L80 160 L130 200 Z"/><path d="M125 200 L175 155 L225 200 Z"/><path d="M200 200 L245 165 L290 200 Z"/></g></svg>
-        <div class="big">Every property,<br>one clear report.</div>
-        <div class="small">For landlords and investors · DFW</div>
-      </div>
+      <img class="ad-photo" src="ads/ad-3.jpg" width="720" height="720" loading="lazy" alt="Three rental houses with an inspector in the driveway, headline: Every property, one clear report.">
       <div class="ad-cta"><b>Schedule this week</b><span class="btn">Book now</span></div>
     </article>
   </div>
+  <div class="ab">
+    <h3>A/B test for ad 1: same copy, one change</h3>
+    <div class="ab-pair">
+      <figure><img src="ads/ad-1.jpg" width="720" height="720" loading="lazy" alt="Version A: close-up of hail-damaged shingles"><figcaption><b>A</b> · Close-up of the damage</figcaption></figure>
+      <figure><img src="ads/ad-1-b.jpg" width="720" height="720" loading="lazy" alt="Version B: whole house under a passing storm with hail on the lawn"><figcaption><b>B</b> · Whole house, storm passing</figcaption></figure>
+    </div>
+    <p>Only the photo changes. A bets that seeing the damage up close makes people want to check; B bets that homeowners recognize their own house and street. Winner: the lower cost per booked inspection, once both versions have enough bookings to compare.</p>
+  </div>
   <details>
-    <summary>Image prompts for the final photos</summary>
-<pre>Ad 1: Close-up of an asphalt shingle roof in a Texas suburb right after a hailstorm, small dents and loose granules visible, wet surface, overcast sky, natural light, documentary photo style, no people, no text.
+    <summary>Image prompts used for the photos</summary>
+<pre>Ad 1 (A): Close-up of an asphalt shingle roof on a house in a Texas suburb right after a hailstorm. Small round dents and loose granules on the shingles, a few hailstones still resting on them, wet surface, overcast sky in soft focus. Documentary photo style, 50mm lens, shallow depth of field. Bottom third darker and simple for text. No people, no text, no logos.
 
-Ad 2: Aging brown asphalt shingle roof on a 2000s two-story house in a Dallas suburb, slightly curled shingle edges, late afternoon sun, realistic photo, no text, no logos.
+Ad 1 (B): Two-story brick house with a shingle roof in a Dallas-Fort Worth suburb just after a hailstorm, dark storm clouds moving away, light on the wet roof, scattered hailstones on the lawn. Eye-level from the street, realistic, damage not exaggerated. No people, no text, no house numbers.
 
-Ad 3: Row of three single-family rental houses in a North Texas neighborhood, clear sky after a storm, roof inspector with a tablet in the driveway seen from behind, realistic photo, no text.</pre>
+Ad 2: Aging brown shingle roof on a 2000s two-story brick house in a Dallas suburb, curled and sun-faded shingle edges, a little moss near the gutter, warm late-afternoon sun, eye-level from the sidewalk across the lawn. No people, no text, no house numbers.
+
+Ad 3: Row of three single-family rental houses in a North Texas neighborhood, clear sky after a storm, wet driveway, a roof inspector with a tablet seen from behind, small in the frame. Wide real-estate photo. No faces, no text, no house numbers.</pre>
   </details>
 </section>
 
